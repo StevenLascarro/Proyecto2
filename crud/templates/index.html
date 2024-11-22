@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extrahead %} 
+<title>Inicio</title>
+{% endblock extrahead%}
+
+{% block content %}
+<h1> Menu Principal</h1>
+<h2>League of Legends es un juego de estrategia por equipos en el que dos equipos de cinco campeones se enfrentan para ver quién destruye antes la base del otro. Tiene 140 campeones para realizar jugadas épicas, asesinar rivales y derribar torretas para alzarte con la victoria. Aqui les dejo alguno de ellos y una parte de la historia del campeon</h2>
+<table class="table table-dark">
+    <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Detalles</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for campeon in campeones%}
+        <tr>
+          <th scope="row">{{ campeon.id }}</th>
+          <td>{{ campeon.nombre }}</td>
+          <td><a class="btn btn-success" href="{% url 'detalleCampeon' campeon.id %}">Detalles</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+</table>
+{% endblock content%}

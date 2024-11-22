@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extrahead %} 
+<title>Detalle Producto</title>
+{% endblock extrahead%}
+
+{% block content %}
+<a class="btn btn-warning" href={% url 'index' %}>Regresar</a>
+<h1> Detalle</h1>
+<table class="table">
+    <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Rol</th>
+          <th scope="col">Descripcion</th>
+          <th scope="col">Dificultad</th>
+          <th scope="col">Imagen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">{{ campeon.id }}</th>
+          <td>{{ campeon.nombre }}</td>
+          <td>{{ campeon.rol }}</td>
+          <td>{{ campeon.descripcion }}</td>
+          <td>{{ campeon.dificultad }}</td>
+          <td><img src="{{ campeon.imagen.url }}"></td>
+        </tr>
+      </tbody>
+</table>
+{% endblock content%}
